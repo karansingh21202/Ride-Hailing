@@ -8,9 +8,25 @@ MVP Ride Hailing application using **Java, Servlets, JSP, Hibernate & MySQL**
 
 | Document | Description |
 |----------|-------------|
+| [📁 PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | **Complete folder structure** - Kya kahan hai |
 | [👥 MEMBER_GUIDE.md](MEMBER_GUIDE.md) | **START HERE** - Team assignments & tasks |
 | [🤝 CONTRIBUTING.md](CONTRIBUTING.md) | Git workflow & PR rules |
 | [📖 docs/API.md](docs/API.md) | API documentation (coming soon) |
+
+---
+
+## ⛔ IMPORTANT: Folder Structure Mat Badlo!
+
+> **🚫 Folders ka naam ya structure KABHI mat badlo!**
+> 
+> - ❌ Folder rename mat karo
+> - ❌ Folder move mat karo  
+> - ❌ Naye folders mat banao (chahiye to ask maintainer ki bhai idhar ek folder chahiye hoga will do it)
+> - ✅ Sirf files add/edit karo apne assigned folder mein
+>
+> **Kyun?** Merge conflicts, broken paths, team sync issues aayenge and merge conflics time lega 
+>
+> **Structure change karna hai?** → Maintainer se karwaa lo but please koi drastic change ni : @karansingh21202
 
 ---
 
