@@ -34,12 +34,12 @@ public class VehicleService {
         return vehicleRepository.findAll();
     }
 
-    // Delete vehicle
+    // Delete vehicle by ID
     public boolean deleteVehicle(Long vehicleId) {
         try {
             Vehicle vehicle = vehicleRepository.findById(vehicleId);
             if (vehicle != null) {
-                vehicleRepository.delete(vehicle);
+                vehicleRepository.delete(vehicle); // Works with updated repository
                 return true;
             } else {
                 return false;
@@ -50,7 +50,7 @@ public class VehicleService {
         }
     }
 
-    // Get vehicle by driver ID (optional convenience method)
+    // Get vehicle by driver ID
     public Vehicle getVehicleByDriverId(Long driverId) {
         return vehicleRepository.findByDriverId(driverId);
     }

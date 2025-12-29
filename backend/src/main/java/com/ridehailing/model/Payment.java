@@ -55,6 +55,11 @@ public class Payment {
     /* =====================
        Getters & Setters
        ===================== */
+    
+    public void setPaymentDate(LocalDateTime paymentDate) {
+    this.paymentDate = paymentDate;
+}
+   
     public Long getPaymentId() {
         return paymentId;
     }

@@ -1,47 +1,69 @@
 package com.ridehailing.repository;
 
+import com.ridehailing.util.JPAUtil;
 import com.ridehailing.model.Payment;
-import com.ridehailing.util.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class PaymentRepository {
 
     public void save(Payment payment) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction tx = session.beginTransaction();
-            session.persist(payment);
-            tx.commit();
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(payment);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
         }
     }
 
     public Payment findById(Long id) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.get(Payment.class, id);
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            return em.find(Payment.class, id);
+        } finally {
+            em.close();
         }
     }
 
     public List<Payment> findAll() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("FROM Payment", Payment.class).list();
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            TypedQuery<Payment> query =
+                    em.createQuery("SELECT p FROM Payment p", Payment.class);
+            return query.getResultList();
+        } finally {
+            em.close();
         }
     }
 
     public void update(Payment payment) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction tx = session.beginTransaction();
-            session.merge(payment);
-            tx.commit();
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(payment);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
         }
     }
 
+    // Updated to accept Payment object
     public void delete(Payment payment) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction tx = session.beginTransaction();
-            session.remove(payment);
-            tx.commit();
+        if (payment == null) return;
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            Payment managedPayment = em.find(Payment.class, payment.getPaymentId());
+            if (managedPayment != null) {
+                em.remove(managedPayment);
+            }
+            em.getTransaction().commit();
+        } finally {
+            em.close();
         }
     }
 }

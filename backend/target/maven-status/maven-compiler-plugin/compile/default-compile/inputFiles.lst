@@ -1,8 +1,8 @@
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\model\PaymentStatus.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\service\UserService.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\service\RatingService.java
-C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\util\HibernateUtil.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\model\Rating.java
+C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\TestJPA.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\model\Vehicle.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\dto\response\ApiResponse.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\repository\PaymentRepository.java
@@ -14,11 +14,11 @@ C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehaili
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\model\Role.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\model\Payment.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\model\PaymentMethod.java
-C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\TestHibernate.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\service\VehicleService.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\service\RideService.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\util\JsonUtil.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\model\User.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\repository\VehicleRepository.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\model\Ride.java
+C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\util\JPAUtil.java
 C:\Users\abhi9\OneDrive\Desktop\Ride-Hailing\backend\src\main\java\com\ridehailing\repository\UserRepository.java

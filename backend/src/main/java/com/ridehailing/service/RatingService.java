@@ -9,23 +9,46 @@ public class RatingService {
 
     private final RatingRepository ratingRepository = new RatingRepository();
 
-    public void addRating(Rating rating) {
-        ratingRepository.save(rating);
+    // Add a new rating
+    public boolean addRating(Rating rating) {
+        try {
+            ratingRepository.save(rating);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
+    // Get rating by ID
     public Rating getRatingById(Long id) {
         return ratingRepository.findById(id);
     }
 
+    // Get all ratings
     public List<Rating> getAllRatings() {
         return ratingRepository.findAll();
     }
 
-    public void updateRating(Rating rating) {
-        ratingRepository.update(rating);
+    // Update an existing rating
+    public boolean updateRating(Rating rating) {
+        try {
+            ratingRepository.update(rating);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public void deleteRating(Rating rating) {
-        ratingRepository.delete(rating);
+    // Delete a rating by object
+    public boolean deleteRating(Rating rating) {
+        try {
+            ratingRepository.delete(rating.getRatingId());
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
