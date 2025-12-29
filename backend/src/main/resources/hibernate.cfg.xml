@@ -9,7 +9,7 @@
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ride_hailing_db?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">your_password_here</property>
+        <property name="hibernate.connection.password">1234</property>
 
         <!-- Hibernate Settings -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>

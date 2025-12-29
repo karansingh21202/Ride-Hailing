@@ -90,7 +90,7 @@ CREATE TABLE payments (
 -- =====================================================
 CREATE TABLE ratings (
     rating_id       BIGINT PRIMARY KEY AUTO_INCREMENT,
-    ride_id         BIGINT NOT NULL UNIQUE,
+    ride_id         BIGINT NOT NULL,
     given_by        BIGINT NOT NULL,
     given_to        BIGINT NOT NULL,
     score           INT NOT NULL CHECK (score BETWEEN 1 AND 5),
@@ -109,3 +109,4 @@ CREATE TABLE ratings (
         FOREIGN KEY (given_to)
         REFERENCES users(user_id)
 );
+

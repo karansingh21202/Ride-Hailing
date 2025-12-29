@@ -29,6 +29,15 @@ public class VehicleRepository {
         }
     }
 
+    public Vehicle findByDriverId(Long driverId) {
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    Vehicle vehicle = session.createQuery("FROM Vehicle WHERE driver.userId = :driverId", Vehicle.class)
+                             .setParameter("driverId", driverId)
+                             .uniqueResult();
+    session.close();
+    return vehicle;
+}
+
     public void update(Vehicle vehicle) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction tx = session.beginTransaction();

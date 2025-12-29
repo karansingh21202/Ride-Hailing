@@ -19,13 +19,13 @@ public class Rating {
     private Long ratingId;
 
     // Ride reference
-    @OneToOne
+    @ManyToOne
     @JoinColumn(
         name = "ride_id",
         nullable = false,
-        unique = true,
         foreignKey = @ForeignKey(name = "fk_rating_ride")
     )
+
     private Ride ride;
 
     // User who gave the rating

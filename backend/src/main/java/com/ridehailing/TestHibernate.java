@@ -1,17 +1,11 @@
 package com.ridehailing;
 
-
-import com.ridehailing.config.HibernateUtil;
-import com.ridehailing.model.User;
-import com.ridehailing.model.Vehicle;
-import com.ridehailing.model.Ride;
-import com.ridehailing.model.Payment;
-import com.ridehailing.model.Rating;
+import com.ridehailing.util.HibernateUtil;
+import com.ridehailing.model.*;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class TestHibernate {
@@ -19,7 +13,6 @@ public class TestHibernate {
     public static void main(String[] args) {
         Transaction tx = null;
 
-        // Use try-with-resources so session closes automatically
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
             tx = session.beginTransaction();
@@ -30,7 +23,7 @@ public class TestHibernate {
             rider.setEmail("rider@test.com");
             rider.setPhone("9000000001");
             rider.setPassword("hashed_password");
-            rider.setRole("RIDER");
+            rider.setRole(Role.RIDER);   // ✅ enum
             session.save(rider);
 
             User driver = new User();
@@ -38,7 +31,7 @@ public class TestHibernate {
             driver.setEmail("driver@test.com");
             driver.setPhone("9000000002");
             driver.setPassword("hashed_password");
-            driver.setRole("DRIVER");
+            driver.setRole(Role.DRIVER); // ✅ enum
             driver.setLicenseNumber("LIC12345");
             session.save(driver);
 
@@ -58,19 +51,18 @@ public class TestHibernate {
             ride.setDriver(driver);
             ride.setPickupLocation("MG Road, Patna");
             ride.setDropLocation("Boring Road, Patna");
-            ride.setStatus("COMPLETED");
+            ride.setStatus(RideStatus.COMPLETED); // ✅ enum
             ride.setStartTime(LocalDateTime.of(2025, 12, 29, 10, 0));
             ride.setEndTime(LocalDateTime.of(2025, 12, 29, 10, 30));
-            ride.setFare(new BigDecimal("250.00"));
+            ride.setFare(250.00); // ✅ Double
             session.save(ride);
 
             // ================= Payment =================
             Payment payment = new Payment();
             payment.setRide(ride);
-            payment.setAmount(new BigDecimal("250.00"));
-            payment.setMethod("CASH");
-            payment.setStatus("COMPLETED");
-            payment.setPaymentDate(LocalDateTime.now());
+            payment.setAmount(250.00);                 // ✅ Double
+            payment.setMethod(PaymentMethod.CASH);     // ✅ enum
+            payment.setStatus(PaymentStatus.COMPLETED);// ✅ enum
             session.save(payment);
 
             // ================= Rating =================
@@ -82,14 +74,13 @@ public class TestHibernate {
             rating.setComment("Excellent ride!");
             session.save(rating);
 
-            tx.commit(); // commit transaction
-            System.out.println("Data inserted successfully!");
+            tx.commit();
+            System.out.println("✅ Data inserted successfully!");
 
         } catch (Exception e) {
-            if (tx != null) tx.rollback(); // rollback in case of error
+            if (tx != null) tx.rollback();
             e.printStackTrace();
         } finally {
-            // Close Hibernate SessionFactory once done
             HibernateUtil.getSessionFactory().close();
         }
     }
